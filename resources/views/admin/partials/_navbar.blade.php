@@ -1,14 +1,8 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="main-header navbar navbar-expand navbar-dark navbar-info">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
         </li>
     </ul>
 
@@ -111,6 +105,60 @@
                 <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
             </div>
         </li>
+        <!-- User Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#">
+                <img src="{{url('')}}/public/backend/dist/img/user1-128x128.jpg"
+                     height="25" width="25" class="img-circle elevation-2" alt="User Image">
+                <span>{{ auth('admin')->user()->name }}</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                <div class="dropdown-divider"></div>
+                <div class="bg-cyan">
+                    <div class="mx-auto w-25">
+                        <img src="{{url('')}}/public/backend/dist/img/user1-128x128.jpg"
+                             height="50" width="50" class="img-circle elevation-2 mx-auto mt-3" alt="User Image">
+                    </div>
+                    <div class="mx-auto py-2" style="width: 120px">
+                        <strong class="text-center py-2">{{ auth('admin')->user()->name }}</strong>
+                    </div>
+
+                </div>
+
+                @admin('super')
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('admin.show') }}">
+                    <i class="fas fa-user-cog mr-2"></i>{{ucfirst(config('multiauth.prefix')) }}
+                </a>
+                @permitToParent('Role')
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('admin.roles') }}">
+                    <i class="fas fa-user-cog mr-2"></i> Roles
+                </a>
+                @endpermitToParent
+                @endadmin
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('admin.password.change') }}" class="dropdown-item">
+                    <i class="fas fa-lock mr-2"></i>Change Password
+                </a>
+                <div class="dropdown-divider"></div>
+                <div class="float-left p-2">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="float-right p-2">
+                    <a class="btn btn-default btn-flat" href="/admin/logout" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        Sign out
+                    </a>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                          style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+
+            </div>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i
                         class="fas fa-th-large"></i></a>
