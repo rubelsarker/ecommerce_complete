@@ -130,6 +130,9 @@
                 <a class="dropdown-item" href="{{ route('admin.show') }}">
                     <i class="fas fa-user-cog mr-2"></i>{{ucfirst(config('multiauth.prefix')) }}
                 </a>
+                <a class="dropdown-item" href="{{ route('admin.permission.index') }}">
+                    <i class="fas fa-user-cog mr-2"></i>Permissions
+                </a>
                 @permitToParent('Role')
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{ route('admin.roles') }}">

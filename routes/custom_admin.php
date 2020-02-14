@@ -1,5 +1,7 @@
 <?php
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin'], function() {
-//    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
+    Route::resource('permission', 'PermissionController')->except(['destroy','show','edit','update']);
+    Route::get('permission/delete/{id}', 'PermissionController@destroy')->name('permission.destroy');
 });
+

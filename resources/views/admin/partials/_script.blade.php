@@ -33,4 +33,61 @@
 <script src="{{url('')}}/public/backend/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{url('')}}/public/backend/dist/js/demo.js"></script>
+{{--toastr--}}
+<script src="{{url('')}}/public/js/toastr.min.js"></script>
+{{--sweet alert--}}
+<script src="{{url('')}}/public/js/sweetalert.min.js"></script>
+<!-- DataTables -->
+<script src="{{url('')}}/public/backend/plugins/datatables/jquery.dataTables.js"></script>
+<script src="{{url('')}}/public/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<script>
+    @if(Session::has('messege'))
+    let type = "{{Session::get('alert-type','info')}}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
+</script>
+<script>
+    $(document).on("click", "#delete", function(e){
+        e.preventDefault();
+        var link = $(this).attr("href");
+        swal({
+            title: "Do you Want to delete?",
+            text: "Once You Delete, This will be Permanently Deleted!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = link;
+                } else {
+                    swal("Safe Data!");
+                }
+            });
+    });
+    $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+        });
+    });
+</script>
 @yield('admin_script')
