@@ -21,12 +21,35 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
                 <li class="nav-item">
                     <a href="{{route('admin.home')}}" class="nav-link {{ Request::is('admin/home') ? 'active' : ''}} ">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.category.index')}}" class="nav-link {{ Request::is('admin/category*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Category
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.subcategory.index')}}" class="nav-link {{ Request::is('admin/subcategory*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Subcategory
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.sub-subcategory.index')}}" class="nav-link {{ Request::is('admin/sub-subcategory*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Sub Subcategory
                         </p>
                     </a>
                 </li>

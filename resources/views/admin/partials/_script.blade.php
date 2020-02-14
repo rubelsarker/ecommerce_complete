@@ -1,6 +1,7 @@
 
 <!-- jQuery -->
 <script src="{{url('')}}/public/backend/plugins/jquery/jquery.min.js"></script>
+@yield('admin_script')
 <!-- jQuery UI 1.11.4 -->
 <script src="{{url('')}}/public/backend/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -40,6 +41,7 @@
 <!-- DataTables -->
 <script src="{{url('')}}/public/backend/plugins/datatables/jquery.dataTables.js"></script>
 <script src="{{url('')}}/public/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+
 <script>
     @if(Session::has('messege'))
     let type = "{{Session::get('alert-type','info')}}";
@@ -90,4 +92,3 @@
         });
     });
 </script>
-@yield('admin_script')
