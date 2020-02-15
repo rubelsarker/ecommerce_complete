@@ -53,6 +53,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.brand.index')}}" class="nav-link {{ Request::is('admin/brand*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Brand
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">System</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link  ">

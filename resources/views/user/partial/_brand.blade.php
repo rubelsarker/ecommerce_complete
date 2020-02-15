@@ -5,20 +5,18 @@
                 <div class="brands_slider_container">
 
                     <!-- Brands Slider -->
-
                     <div class="owl-carousel owl-theme brands_slider">
-
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_1.jpg" alt=""></div></div>
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_2.jpg" alt=""></div></div>
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_3.jpg" alt=""></div></div>
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_4.jpg" alt=""></div></div>
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_5.jpg" alt=""></div></div>
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_6.jpg" alt=""></div></div>
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_7.jpg" alt=""></div></div>
-                        <div class="owl-item"><div class="brands_item d-flex flex-column justify-content-center"><img src="{{url('')}}/public/frontend/images/brands_8.jpg" alt=""></div></div>
-
+                        @php
+                         $brands = \App\Model\Admin\Brand::all();
+                        @endphp
+                        @foreach($brands as $brand)
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center">
+                                <img src="{{URL::to($brand->logo)}}" alt="">
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
-
                     <!-- Brands Slider Navigation -->
                     <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
                     <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>

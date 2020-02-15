@@ -184,17 +184,9 @@
                                 <li class="hassubs">
                                     <a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
                                     <ul>
-                                        <li>
-                                            <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
+                                        @foreach($brands as $brand)
+                                            <li><a href="#">{{$brand->name}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li class="hassubs">

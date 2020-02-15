@@ -19,6 +19,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
     Route::get('delete/sub-subcategory/{id}', 'SubSubCategoryController@destroy')->name('sub-subcategory.destroy');
     Route::get('active/sub-subcategory/{id}', 'SubSubCategoryController@active')->name('sub-subcategory.active');
     Route::get('inactive/sub-subcategory/{id}', 'SubSubCategoryController@inactive')->name('sub-subcategory.inactive');
+    //brand
+    Route::resource('brand', 'BrandController')->except(['destroy']);
+    Route::get('delete/brand/{id}', 'BrandController@destroy')->name('brand.destroy');
+    Route::get('active/brand/{id}', 'BrandController@active')->name('brand.active');
+    Route::get('inactive/brand/{id}', 'BrandController@inactive')->name('brand.inactive');
     //Misc
     Route::get('get/subcategory/{id}', 'MiscController@getSubCat');
 
