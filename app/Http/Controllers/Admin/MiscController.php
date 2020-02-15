@@ -14,7 +14,7 @@ class MiscController extends Controller
         $this->middleware('auth:admin');
     }
     public function getSubCat($id){
-        $subcat = SubCategory::where('id',$id)->select('id','name')->get();
+        $subcat = SubCategory::where('category_id',$id)->select('id','name')->get();
         return json_encode($subcat);
     }
 }
