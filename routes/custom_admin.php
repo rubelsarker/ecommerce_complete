@@ -24,6 +24,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
     Route::get('delete/brand/{id}', 'BrandController@destroy')->name('brand.destroy');
     Route::get('active/brand/{id}', 'BrandController@active')->name('brand.active');
     Route::get('inactive/brand/{id}', 'BrandController@inactive')->name('brand.inactive');
+    //color
+    Route::resource('color', 'ColorController')->except(['destroy']);
+    Route::get('delete/color/{id}', 'ColorController@destroy')->name('color.destroy');
+    Route::get('active/color/{id}', 'ColorController@active')->name('color.active');
+    Route::get('inactive/color/{id}', 'ColorController@inactive')->name('color.inactive');
+    //unit
+    Route::resource('unit', 'UnitController')->except(['destroy']);
+    Route::get('delete/unit/{id}', 'UnitController@destroy')->name('unit.destroy');
+    Route::get('active/unit/{id}', 'UnitController@active')->name('unit.active');
+    Route::get('inactive/unit/{id}', 'UnitController@inactive')->name('unit.inactive');
+    //size
+    Route::resource('size', 'SizeController')->except(['destroy']);
+    Route::get('delete/size/{id}', 'SizeController@destroy')->name('size.destroy');
+    Route::get('active/size/{id}', 'SizeController@active')->name('size.active');
+    Route::get('inactive/size/{id}', 'SizeController@inactive')->name('size.inactive');
     //Misc
     Route::get('get/subcategory/{id}', 'MiscController@getSubCat');
 

@@ -61,6 +61,30 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.color.index')}}" class="nav-link {{ Request::is('admin/color*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Color
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.size.index')}}" class="nav-link {{ Request::is('admin/size*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Size
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.unit.index')}}" class="nav-link {{ Request::is('admin/unit*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Unit
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">System</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link  ">
