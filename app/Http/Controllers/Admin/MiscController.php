@@ -17,4 +17,8 @@ class MiscController extends Controller
         $subcat = SubCategory::where('category_id',$id)->select('id','name')->get();
         return json_encode($subcat);
     }
+    public function getSubSubCat($id){
+        $subcat = SubSubCategory::where('sub_category_id',$id)->select('id','name')->get();
+        return json_encode($subcat);
+    }
 }

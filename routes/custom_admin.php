@@ -39,8 +39,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
     Route::get('delete/size/{id}', 'SizeController@destroy')->name('size.destroy');
     Route::get('active/size/{id}', 'SizeController@active')->name('size.active');
     Route::get('inactive/size/{id}', 'SizeController@inactive')->name('size.inactive');
+    //size
+    Route::resource('product', 'ProductController')->except(['destroy']);
+    Route::get('delete/product/{id}', 'ProductController@destroy')->name('product.destroy');
+    Route::get('active/product/{id}', 'ProductController@active')->name('product.active');
+    Route::get('inactive/product/{id}', 'ProductController@inactive')->name('product.inactive');
     //Misc
     Route::get('get/subcategory/{id}', 'MiscController@getSubCat');
+    Route::get('get/sub-subcategory/{id}', 'MiscController@getSubSubCat');
 
 });
 

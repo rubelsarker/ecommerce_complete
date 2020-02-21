@@ -85,6 +85,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.product.index')}}" class="nav-link {{ Request::is('admin/product*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Product
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">System</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link  ">
