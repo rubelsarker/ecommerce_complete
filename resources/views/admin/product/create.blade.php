@@ -178,7 +178,7 @@
                                                                 <div class="col-4">
                                                                     <div class="form-group">
                                                                         <label>Price <span class="text-danger">*</span></label>
-                                                                        <input name="price" type="number"
+                                                                        <input name="price" type="text"
                                                                                class="form-control"
                                                                                placeholder="Product Price">
                                                                     </div>
@@ -233,7 +233,7 @@
                                                                      style="display: none">
                                                                     <div class="form-group">
                                                                         <label>Discount Percent</label>
-                                                                        <input name="discount_percent" type="number"
+                                                                        <input name="discount_percent" type="text"
                                                                                class="form-control"
                                                                                placeholder="Discount Percent">
                                                                     </div>

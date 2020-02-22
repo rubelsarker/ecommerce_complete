@@ -83,8 +83,11 @@
                     </div>
                     <div class="col-12 col-sm-4">
                         <h3 class="d-inline-block d-sm-none">{{$row->name}}</h3>
+
                         <div class="col-12">
-                            <img src="{{URL::to($row->images[0]->image)}}" class="product-image" alt="Product Image">
+                            @if( count($row->images) > 0 )
+                                <img src="{{URL::to($row->images[0]->image)}}" class="product-image" alt="Product Image">
+                            @endif
                         </div>
                         <div class="col-12 product-image-thumbs">
                             @foreach($row->images as $img)
