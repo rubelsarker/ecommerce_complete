@@ -78,7 +78,7 @@ class ProductController extends Controller
                     File::makeDirectory($upload_path, $mode = 0777, true, true);
                 }
                 $img = Image::make($file->getRealPath());
-                $img->resize(200, 150)->save($upload_path.'/'.$imageName);
+                $img->resize(300, 300)->save($upload_path.'/'.$imageName);
                 ProductImage::create([
                     'p_id'  => $p_id->id,
                     'image' => $image_url
@@ -101,27 +101,17 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        //
+        $row = Product::findOrFail($id);
+        return view('admin.product.show',compact('row'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
@@ -136,5 +126,19 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function active($id){
+        Product::where('id',$id)->update(['status' => 1]);
+        $notification=array(
+            'messege'=>'Product Active Successfully.',
+            'alert-type'=>'success');
+        return redirect()->route('admin.product.index')->with($notification);
+    }
+    public function inactive($id){
+        Product::where('id',$id)->update(['status' => 0]);
+        $notification=array(
+            'messege'=>'Product Inactive Successfully.',
+            'alert-type'=>'success');
+        return redirect()->route('admin.product.index')->with($notification);
     }
 }

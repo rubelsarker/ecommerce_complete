@@ -47,8 +47,8 @@
                             <td>{{$key + 1}}</td>
                             <td>{{$row->name}}</td>
                             <td>{{$row->p_code}}</td>
-                            <td>{{$row->category->name}}</td>
-                            <td>{{$row->brand->name}}</td>
+                            <td>{{$row->category ? $row->category->name : ''}}</td>
+                            <td>{{$row->brand ? $row->brand->name : ''}}</td>
                             <td>{{$row->quantity}}</td>
                             <td>{{$row->price}}</td>
                             @if($row->discount == 1)
@@ -57,7 +57,11 @@
                                 <td>Unavailable</td>
                             @endif
 
-                            <td><img src="{{URL::to($row->images[0]->image)}}" class="img-thumbnail" alt="logo-image" width="100" height="70"></td>
+                            <td>
+                                @if( count($row->images) > 0 )
+                                <img src="{{URL::to($row->images[0]->image)}}" class="img-thumbnail" alt="logo-image" width="100" height="50">
+                                @endif
+                            </td>
                             @if($row->status == 1)
                             <td><span class="badge badge-success">Active</span></td>
                             @else
