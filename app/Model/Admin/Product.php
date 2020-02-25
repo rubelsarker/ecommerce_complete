@@ -31,4 +31,8 @@ class Product extends Model
     {
         return $this->hasMany(ProductMore::class, 'p_id');
     }
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

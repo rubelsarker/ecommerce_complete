@@ -46,10 +46,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'          => 'required',
+            'name'          => 'required|unique:products',
             'cat_id'        => 'required',
             'quantity'      => 'required',
-            'price'         => 'required'
+            'price'         => 'required',
+            'slug'          => 'unique:products'
         ]);
         $data = [
             'name'                  => $request->name,
@@ -126,10 +127,11 @@ class ProductController extends Controller
     {
         //dd($request->all());
         $request->validate([
-            'name'          => 'required',
+            'name'          => 'required|unique:products,name,'.$id,
             'cat_id'        => 'required',
             'quantity'      => 'required',
-            'price'         => 'required'
+            'price'         => 'required',
+            'slug'          => 'unique:products,slug,'.$id,
         ]);
         Product::where('id',$id)->update([
             'name'                  => $request->name,

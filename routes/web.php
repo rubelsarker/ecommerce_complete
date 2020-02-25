@@ -13,7 +13,10 @@
 
 
 Auth::routes();
+Route::group(['namespace'=>'User'], function(){
+    Route::get('/', 'WelcomeController@index');
+    Route::get('product/{slug}', 'WelcomeController@productDetails')->name('product.details');
+});
 
-Route::get('/', 'User\WelcomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 

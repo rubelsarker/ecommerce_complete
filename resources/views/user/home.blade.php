@@ -247,30 +247,37 @@
                             <div class="tabs_line"><span></span></div>
                         </div>
 
+
                         <!-- Product Panel -->
                         <div class="product_panel panel active">
                             <div class="featured_slider slider">
                                 <!-- Slider Item -->
                                 @foreach($products as $p)
+                                    @php
+                                        if($p->discount ==1){
+                                             $discount = ($p->discount_percent * $p->price) / 100;
+                                             $discount_price = $p->price - $discount;//discount calculation
+                                        }
+                                        $time = \Carbon\Carbon::now();//get current time
+                                        $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $time);//time format
+                                        $from =\Carbon\Carbon::createFromFormat('Y-m-d H:s:i', $p->created_at);
+                                        $d =  $diff_in_hours = $to->diffInHours($from);//time difference in hours
+                                    @endphp
                                     <div class="featured_slider_item">
                                     <div class="border_active"></div>
-                                    <div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                    <div class="product_item {{$d < 72 ? 'is_new' :'' }}  {{$p->discount ==1 ? 'discount' : ''}}  d-flex flex-column align-items-center justify-content-center text-center">
                                         <div class="product_image d-flex flex-column align-items-center justify-content-center">
                                             @if( count($p->images) > 0 )
                                                 <img src="{{URL::to($p->images[0]->image)}}" alt="{{$p->name}}">
+                                                @else
+                                                <img src="{{url('')}}/public/upload/product/default.png" alt="{{$p->name}}">
                                             @endif
-                                            @php
-                                                if($p->discount ==1){
-                                                     $discount = ($p->discount_percent * $p->price) / 100;
-                                                     $discount_price = $p->price - $discount;
-                                                }
-                                            @endphp
                                         </div>
                                         <div class="product_content">
-                                            <div class="product_price discount"> &#x9f3; {{$p->discount == 1 ? $discount_price : '' }}<span> &#x9f3; {{$p->price}}</span></div>
+                                            <div class="product_price discount">  <span class="text-danger {{$p->discount == 0 ? 'd-none' : ''}}"> &#x9f3;</span>{{$p->discount == 1 ?  ceil($discount_price) : '' }}<span class="text-danger"> &#x9f3; {{ number_format((float) $p->price ,2)  }}</span></div>
                                             <div class="product_name">
                                                 <div>
-                                                    <a href="#">{{Str::limit($p->name, 12, ' ...')}}</a>
+                                                    <a href="{{route('product.details',$p->slug)}}">{{Str::limit($p->name, 12, ' ...')}}</a>
                                                 </div>
                                             </div>
                                             <div class="product_extras">
