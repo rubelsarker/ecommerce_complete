@@ -1,5 +1,10 @@
 @extends('user.layout.app')
 @section('title','| Home')
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/plugins/slick-1.8.0/slick.css">
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/responsive.css">
+@endsection
 @section('content')
 <!-- Banner -->
 
@@ -3691,4 +3696,8 @@
 
 <!-- Brands -->
 @include('user.partial._brand')
+@endsection
+@section('script')
+<script src="{{url('')}}/public/frontend/plugins/slick-1.8.0/slick.js"></script>
+<script src="{{url('')}}/public/frontend/js/custom.js"></script>
 @endsection

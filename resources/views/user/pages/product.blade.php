@@ -1,8 +1,8 @@
 @extends('user.layout.app')
 @section('title','| Product')
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/product_styles.css">
-    <link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/product_responsive.css">
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/product_styles.css">
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/product_responsive.css">
 @endsection
 @section('content')
 
@@ -15,24 +15,36 @@
                 <!-- Images -->
                 <div class="col-lg-2 order-lg-1 order-2">
                     <ul class="image_list">
-                        <li data-image="images/single_4.jpg"><img src="{{url('')}}/public/frontend/images/single_4.jpg" alt=""></li>
-                        <li data-image="images/single_2.jpg"><img src="{{url('')}}/public/frontend/images/single_2.jpg" alt=""></li>
-                        <li data-image="images/single_3.jpg"><img src="{{url('')}}/public/frontend/images/single_3.jpg" alt=""></li>
+                        @foreach($product->images as $img)
+                            <li data-image="{{URL::to($img->image)}}">
+                                <img src="{{URL::to($img->image)}}" alt="{{$product->name}}">
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
                 <!-- Selected Image -->
                 <div class="col-lg-5 order-lg-2 order-1">
-                    <div class="image_selected"><img src="{{url('')}}/public/frontend/images/single_4.jpg" alt=""></div>
+                    <div class="image_selected">
+                        @if( count($product->images) > 0 )
+                            <img src="{{URL::to($product->images[0]->image)}}" class="" alt="{{$product->name}}">
+                        @endif
+                    </div>
                 </div>
 
                 <!-- Description -->
                 <div class="col-lg-5 order-3">
                     <div class="product_description">
-                        <div class="product_category">Laptops</div>
-                        <div class="product_name">MacBook Air 13</div>
+                        <div class="product_category">
+                            {{$product->category ? $product->category->name .' >' : ''}}
+                            {{$product->subcategory ? $product->subcategory->name .' >' : ''}}
+                            {{$product->subsubcategory ? $product->subsubcategory->name : ''}}
+                        </div>
+                        <div class="product_name">{{$product->name}}</div>
                         <div class="rating_r rating_r_4 product_rating"><i></i><i></i><i></i><i></i><i></i></div>
-                        <div class="product_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum. laoreet turpis, nec sollicitudin dolor cursus at. Maecenas aliquet, dolor a faucibus efficitur, nisi tellus cursus urna, eget dictum lacus turpis.</p></div>
+                        <div class="product_text">
+                            <p>{{$product->description}}</p>
+                        </div>
                         <div class="order_info d-flex flex-row">
                             <form action="#">
                                 <div class="clearfix" style="z-index: 1000;">
@@ -51,7 +63,9 @@
                                     <ul class="product_color">
                                         <li>
                                             <span>Color: </span>
-                                            <div class="color_mark_container"><div id="selected_color" class="color_mark"></div></div>
+                                            <div class="color_mark_container">
+                                                <div id="selected_color" class="color_mark"></div>
+                                            </div>
                                             <div class="color_dropdown_button"><i class="fas fa-chevron-down"></i></div>
 
                                             <ul class="color_list">
@@ -61,6 +75,7 @@
                                             </ul>
                                         </li>
                                     </ul>
+
 
                                 </div>
 
@@ -81,7 +96,7 @@
 
     <!-- Recently Viewed -->
 
-    <div class="viewed"{{url('')}}/public/frontend/>
+    <div class="viewed">
         <div class="container">
             <div class="row">
                 <div class="col">

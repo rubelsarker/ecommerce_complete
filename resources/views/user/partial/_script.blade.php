@@ -8,7 +8,5 @@
 <script src="{{url('')}}/public/frontend/plugins/greensock/animation.gsap.min.js"></script>
 <script src="{{url('')}}/public/frontend/plugins/greensock/ScrollToPlugin.min.js"></script>
 <script src="{{url('')}}/public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-<script src="{{url('')}}/public/frontend/plugins/slick-1.8.0/slick.js"></script>
 <script src="{{url('')}}/public/frontend/plugins/easing/easing.js"></script>
-<script src="{{url('')}}/public/frontend/js/custom.js"></script>
 @yield('script')
