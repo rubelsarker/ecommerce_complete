@@ -95,10 +95,10 @@
                 </li>
                 <li class="nav-header">System</li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link  ">
+                    <a href="{{route('admin.setting')}}" class="nav-link {{ Request::is('admin/website-setting*') ? 'active' : ''}} ">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
-                           Setting
+                            Setting
                         </p>
                     </a>
                 </li>

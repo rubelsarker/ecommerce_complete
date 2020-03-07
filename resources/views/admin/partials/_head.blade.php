@@ -19,8 +19,6 @@
 <link rel="stylesheet" href="{{url('')}}/public/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 <!-- Daterange picker -->
 <link rel="stylesheet" href="{{url('')}}/public/backend/plugins/daterangepicker/daterangepicker.css">
-<!-- summernote -->
-<link rel="stylesheet" href="{{url('')}}/public/backend/plugins/summernote/summernote-bs4.css">
 <link rel="stylesheet" href="{{url('')}}/public/css/toastr.css">
 <!-- DataTables -->
 <link rel="stylesheet" href="{{url('')}}/public/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.css">

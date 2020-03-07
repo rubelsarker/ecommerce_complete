@@ -52,7 +52,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Color Code</label>
-                                            <input name="code" type="text" class="form-control my-colorpicker1">
+                                            <input autocomplete="off" name="code" type="text" class="form-control my-colorpicker1">
                                         </div>
                                     </div>
                                 </div>

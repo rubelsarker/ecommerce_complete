@@ -46,6 +46,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
     Route::get('inactive/product/{id}', 'ProductController@inactive')->name('product.inactive');
     Route::post('delete-image','ProductController@deleteImage');
     Route::get('delete-mf/{id}','ProductController@deleteMf');
+    //setting
+    Route::get('website-setting','WebsiteSettingController@setting')->name('setting');
+    Route::put('website-setting','WebsiteSettingController@settingUpdate')->name('setting.update');
     //Misc
     Route::get('get/subcategory/{id}', 'MiscController@getSubCat');
     Route::get('get/sub-subcategory/{id}', 'MiscController@getSubSubCat');

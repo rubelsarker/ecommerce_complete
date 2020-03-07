@@ -53,7 +53,7 @@
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label>Color Code</label>
-                                            <input value="{{$row->code}}" name="code" type="text" class="form-control my-colorpicker1">
+                                            <input autocomplete="off" value="{{$row->code}}" name="code" type="text" class="form-control my-colorpicker1">
                                         </div>
                                     </div>
                                     <div class="form-check">
