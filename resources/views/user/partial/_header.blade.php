@@ -172,18 +172,16 @@
 
                         <div class="main_nav_menu ml-auto">
                             <ul class="standard_dropdown main_nav_dropdown">
-                                <li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
+                                <li><a href="{{url('/')}}">Home<i class="fas fa-chevron-down"></i></a></li>
                                 <li class="hassubs">
-                                    <a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
+                                    <a href="#">Brands<i class="fas fa-chevron-down"></i></a>
                                     <ul>
                                         @foreach($brands as $brand)
                                             <li><a href="#">{{$brand->name}}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
-
-                                <li><a href="#">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                <li><a href="#">Contact<i class="fas fa-chevron-down"></i></a></li>
+                                <li><a href="{{route('contact')}}">Contact<i class="fas fa-chevron-down"></i></a></li>
                             </ul>
                         </div>
 
@@ -238,11 +236,11 @@
                                 </ul>
                             </li>
                             <li class="page_menu_item">
-                                <a href="#">Home<i class="fa fa-angle-down"></i></a>
+                                <a href="{{url('/')}}">Home<i class="fa fa-angle-down"></i></a>
                             </li>
 
                             <li class="page_menu_item has-children">
-                                <a href="#">Featured Brands<i class="fa fa-angle-down"></i></a>
+                                <a href="#">Brands<i class="fa fa-angle-down"></i></a>
                                 <ul class="page_menu_selection">
                                     <li><a href="#">Featured Brands<i class="fa fa-angle-down"></i></a></li>
                                     @foreach($brands as $brand)
@@ -251,8 +249,7 @@
                                 </ul>
                             </li>
 
-                            <li class="page_menu_item"><a href="#">blog<i class="fa fa-angle-down"></i></a></li>
-                            <li class="page_menu_item"><a href="#">contact<i class="fa fa-angle-down"></i></a></li>
+                            <li class="page_menu_item"><a href="{{route('contact')}}">contact<i class="fa fa-angle-down"></i></a></li>
                         </ul>
 
                         <div class="menu_contact">

@@ -22,7 +22,7 @@
                     <div class="banner_price">&#2547; {{$banner->product_price}}</div>
                     <div class="banner_product_name">{{$banner->product_name}}</div>
                     <div class="button banner_button">
-                        <a href="#">Shop Now</a>
+                        <a href="{{route('shop')}}">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -284,7 +284,11 @@
                                             @endif
                                         </div>
                                         <div class="product_content">
-                                            <div class="product_price discount">  <span class="text-danger {{$p->discount == 0 ? 'd-none' : ''}}"> &#x9f3;</span>{{$p->discount == 1 ?  ceil($discount_price) : '' }}<span class="text-danger"> &#x9f3; {{ number_format((float) $p->price ,2)  }}</span></div>
+                                            <div class="product_price discount">
+                                                <span class="text-danger {{$p->discount == 0 ? 'd-none' : ''}}"> &#x9f3;</span>
+                                                {{$p->discount == 1 ?  ceil($discount_price) : '' }}
+                                                <span class="text-danger"> &#x9f3; {{ number_format((float) $p->price ,2)  }}</span>
+                                            </div>
                                             <div class="product_name">
                                                 <div>
                                                     <a href="{{route('product.details',$p->slug)}}">{{Str::limit($p->name, 12, ' ...')}}</a>

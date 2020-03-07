@@ -15,6 +15,12 @@ Route::group(['namespace'=>'User'], function(){
     Route::patch('update-cart', 'CartController@update');
     Route::delete('remove-from-cart', 'CartController@remove');
     Route::get('cancel-cart', 'CartController@cancel');
+    //contact
+    Route::get(md5('contact'),'PagesController@contact')->name('contact');
+    //shop
+    Route::get(md5('shop'),'PagesController@shop')->name('shop');
+    //product by brand
+    Route::get('brand/{id}','ProductFilterController@productByBrand')->name('brand.products');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 //view composer
