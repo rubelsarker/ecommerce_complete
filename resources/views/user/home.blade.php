@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/plugins/slick-1.8.0/slick.css">
 <link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/responsive.css">
+<link rel="stylesheet" type="text/css" href="{{url('')}}/public/frontend/styles/custom.css">
 @endsection
 @section('content')
 <!-- Banner -->
@@ -291,7 +292,9 @@
                                                     <input type="radio" name="product_color" style="background:#000000">
                                                     <input type="radio" name="product_color" style="background:#999999">
                                                 </div>
-                                                <button class="product_cart_button">Add to Cart</button>
+                                                <a href="javascript:void(0);" role="button"  data-id="{{ $p->id }}"
+                                                   class="add-to-cart btn  product_cart_button">Add to Cart</a>
+                                                <i class="fas fa-spinner btn-loading" style="font-size:24px; display: none"></i>
                                             </div>
                                         </div>
                                         <div class="product_fav"><i class="fas fa-heart"></i></div>
@@ -3700,4 +3703,25 @@
 @section('script')
 <script src="{{url('')}}/public/frontend/plugins/slick-1.8.0/slick.js"></script>
 <script src="{{url('')}}/public/frontend/js/custom.js"></script>
+<script type="text/javascript">
+    $(".add-to-cart").click(function (e) {
+        e.preventDefault();
+        var ele = $(this);
+        ele.siblings('.btn-loading').show();
+        $.ajax({
+            url: '{{ url('add-to-cart') }}' + '/' + ele.attr("data-id"),
+            method: "get",
+            data: {_token: '{{ csrf_token() }}'},
+            dataType: "json",
+            success: function (response) {
+                ele.siblings('.btn-loading').hide();
+                if(response.status ==302){
+                    console.log(response)
+                    toastr.success('Product added to cart successfully !!');
+                }
+                $("#header-bar").html(response.data);
+            }
+        });
+    });
+</script>
 @endsection
