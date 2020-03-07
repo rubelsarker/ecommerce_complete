@@ -10,16 +10,20 @@
 <!-- Banner -->
 
 <div class="banner">
-    <div class="banner_background" style="background-image:url({{url('')}}/public/frontend/images/banner_background.jpg)"></div>
+    <div class="banner_background"
+         style="background-image:url({{URL::to($banner->banner)}})"></div>
     <div class="container fill_height">
         <div class="row fill_height">
-            <div class="banner_product_image"><img src="{{url('')}}/public/frontend/images/banner_product.png" alt=""></div>
+            <div class="banner_product_image">
+                <img src="{{URL::to($banner->banner_product)}}" alt=""></div>
             <div class="col-lg-5 offset-lg-4 fill_height">
                 <div class="banner_content">
-                    <h1 class="banner_text">new era of smartphones</h1>
-                    <div class="banner_price"><span>$530</span>$460</div>
-                    <div class="banner_product_name">Apple Iphone 6s</div>
-                    <div class="button banner_button"><a href="#">Shop Now</a></div>
+                    <h1 class="banner_text">{{$banner->banner_text}}</h1>
+                    <div class="banner_price">&#2547; {{$banner->product_price}}</div>
+                    <div class="banner_product_name">{{$banner->product_name}}</div>
+                    <div class="button banner_button">
+                        <a href="#">Shop Now</a>
+                    </div>
                 </div>
             </div>
         </div>

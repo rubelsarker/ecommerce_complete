@@ -57,28 +57,10 @@ class WebsiteSettingController extends Controller
         }else{
             $favicon_url = $row->favicon;
         }
-        if ($request->hasFile('banner_image')) {
-            $banner = $request->file('banner_image');
-            if (isset($banner)) {
-                $imageName =  'banner' . time() . '.' . $banner->getClientOriginalExtension();
-                $upload_path = 'public/upload/setting';
-                $banner_url = $upload_path . '/' . $imageName;
-                if (!File::exists($upload_path)) {
-                    File::makeDirectory($upload_path, $mode = 0777, true, true);
-                }
-                if(file_exists($row->banner_image)){
-                    unlink($row->banner_image);
-                }
-                $img = Image::make($banner->getRealPath());
-                $img->save($upload_path . '/' . $imageName);
-            }
-        }else{
-            $banner_url = $row->banner_image;
-        }
+
         WebsiteSetting::where('id',$id)->update( [
             'logo'          => $logo_url,
             'favicon'       => $favicon_url,
-            'banner_image'  => $banner_url,
             'mobile_1'      => $request->mobile_1,
             'mobile_2'      => $request->mobile_2,
             'email'         => $request->email,

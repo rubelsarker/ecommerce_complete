@@ -49,6 +49,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
     //setting
     Route::get('website-setting','WebsiteSettingController@setting')->name('setting');
     Route::put('website-setting','WebsiteSettingController@settingUpdate')->name('setting.update');
+    //banner
+    Route::resource('banner', 'BannerController')->except(['destroy']);
+    Route::get('delete/banner/{id}', 'BannerController@destroy')->name('banner.destroy');
+    Route::get('active/banner/{id}', 'BannerController@active')->name('banner.active');
+    Route::get('inactive/banner/{id}', 'BannerController@inactive')->name('banner.inactive');
     //Misc
     Route::get('get/subcategory/{id}', 'MiscController@getSubCat');
     Route::get('get/sub-subcategory/{id}', 'MiscController@getSubSubCat');

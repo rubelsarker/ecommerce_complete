@@ -153,31 +153,6 @@
                                         <img src="{{URL::to($setting->favicon)}}"/>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <label for="banner_image">Banner</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input accept="image/*" onchange="readURL2(this);" name="banner_image" type="file"
-                                                           class="custom-file-input" id="banner_image">
-                                                    <label class="custom-file-label" for="banner_image">Choose file</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="form-group">
-                                            <label >Selected Banner</label>
-                                            <img id="s_banner" src="#"/>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <label >Old Banner</label>
-                                        <img src="{{URL::to($setting->banner_image)}}" class="img-fluid"/>
-                                    </div>
-                                </div>
-
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-info btn-flat float-right">Update</button>
@@ -223,17 +198,6 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        function readURL2(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function (e) {
-                    $('#s_banner')
-                        .attr('src', e.target.result)
-                        .width(100)
-                        .height(100);
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
+
     </script>
 @endsection

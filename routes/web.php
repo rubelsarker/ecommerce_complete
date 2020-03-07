@@ -1,6 +1,7 @@
 <?php
 use App\Model\Admin\Brand;
 use App\Model\Admin\Category;
+use App\Model\Admin\WebsiteSetting;
 
 Auth::routes();
 Route::group(['namespace'=>'User'], function(){
@@ -21,4 +22,8 @@ View::composer(['user.partial._header','user.partial._brand'],function ($view){
     $cats = Category::all();
     $brands = Brand::all();
     $view->with(['cats' => $cats, 'brands' => $brands]);
+});
+View::composer(['*'],function ($view){
+    $setting = WebsiteSetting::firstOrFail();
+    $view->with(['setting' => $setting]);
 });

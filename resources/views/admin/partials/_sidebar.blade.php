@@ -93,6 +93,14 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.banner.index')}}" class="nav-link {{ Request::is('admin/banner*') ? 'active' : ''}} ">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Banner
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-header">System</li>
                 <li class="nav-item">
                     <a href="{{route('admin.setting')}}" class="nav-link {{ Request::is('admin/website-setting*') ? 'active' : ''}} ">

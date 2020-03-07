@@ -17,7 +17,6 @@ class CreateWebsiteSettingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('logo')->nullable();
             $table->string('favicon')->nullable();
-            $table->string('banner_image')->nullable();
             $table->string('mobile_1')->default('+88 01558459459');
             $table->string('mobile_2')->nullable();
             $table->string('email')->default('info@gmail.com');

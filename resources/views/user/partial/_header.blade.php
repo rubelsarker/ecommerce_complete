@@ -6,8 +6,21 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex flex-row">
-                    <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{url('')}}/public/frontend/images/phone.png" alt=""></div>+38 068 005 3570</div>
-                    <div class="top_bar_contact_item"><div class="top_bar_icon"><img src="{{url('')}}/public/frontend/images/mail.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+
+                    <div class="top_bar_contact_item">
+                        <a href="tel:{{$setting->mobile_1}}">
+                            <div class="top_bar_icon">
+                                <img src="{{url('')}}/public/frontend/images/phone.png" alt="">
+                            </div>
+                            {{$setting->mobile_1}}
+                        </a>
+                    </div>
+                    <div class="top_bar_contact_item">
+                        <div class="top_bar_icon">
+                            <img src="{{url('')}}/public/frontend/images/mail.png" alt="">
+                        </div>
+                        <a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
+                    </div>
                     <div class="top_bar_content ml-auto">
                         <div class="top_bar_menu">
                             <ul class="standard_dropdown top_bar_dropdown">
@@ -49,7 +62,11 @@
                 <!-- Logo -->
                 <div class="col-lg-2 col-sm-3 col-3 order-1">
                     <div class="logo_container">
-                        <div class="logo"><a href="#">OneTech</a></div>
+                        <div class="logo">
+                            <a href="{{url('/')}}">
+                               <img src="{{URL::to($setting->logo)}}" height="70" width="150">
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -157,22 +174,6 @@
                             <ul class="standard_dropdown main_nav_dropdown">
                                 <li><a href="#">Home<i class="fas fa-chevron-down"></i></a></li>
                                 <li class="hassubs">
-                                    <a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-                                            <ul>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                                <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li class="hassubs">
                                     <a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
                                     <ul>
                                         @foreach($brands as $brand)
@@ -180,20 +181,9 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li class="hassubs">
-                                    <a href="#">Pages<i class="fas fa-chevron-down"></i></a>
-                                    <ul>
-                                        <li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="product.html">Product<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="blog_single.html">Blog Post<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="regular.html">Regular Post<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-                                <li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
+
+                                <li><a href="#">Blog<i class="fas fa-chevron-down"></i></a></li>
+                                <li><a href="#">Contact<i class="fas fa-chevron-down"></i></a></li>
                             </ul>
                         </div>
 
@@ -250,49 +240,35 @@
                             <li class="page_menu_item">
                                 <a href="#">Home<i class="fa fa-angle-down"></i></a>
                             </li>
-                            <li class="page_menu_item has-children">
-                                <a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
-                                <ul class="page_menu_selection">
-                                    <li><a href="#">Super Deals<i class="fa fa-angle-down"></i></a></li>
-                                    <li class="page_menu_item has-children">
-                                        <a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-                                        <ul class="page_menu_selection">
-                                            <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                            <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                </ul>
-                            </li>
+
                             <li class="page_menu_item has-children">
                                 <a href="#">Featured Brands<i class="fa fa-angle-down"></i></a>
                                 <ul class="page_menu_selection">
                                     <li><a href="#">Featured Brands<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
+                                    @foreach($brands as $brand)
+                                        <li><a href="#">{{$brand->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li class="page_menu_item has-children">
-                                <a href="#">Trending Styles<i class="fa fa-angle-down"></i></a>
-                                <ul class="page_menu_selection">
-                                    <li><a href="#">Trending Styles<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                    <li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-                                </ul>
-                            </li>
-                            <li class="page_menu_item"><a href="blog.html">blog<i class="fa fa-angle-down"></i></a></li>
-                            <li class="page_menu_item"><a href="contact.html">contact<i class="fa fa-angle-down"></i></a></li>
+
+                            <li class="page_menu_item"><a href="#">blog<i class="fa fa-angle-down"></i></a></li>
+                            <li class="page_menu_item"><a href="#">contact<i class="fa fa-angle-down"></i></a></li>
                         </ul>
 
                         <div class="menu_contact">
-                            <div class="menu_contact_item"><div class="menu_contact_icon"><img src="{{url('')}}/public/frontend/images/phone_white.png" alt=""></div>+38 068 005 3570</div>
-                            <div class="menu_contact_item"><div class="menu_contact_icon"><img src="{{url('')}}/public/frontend/images/mail_white.png" alt=""></div><a href="mailto:fastsales@gmail.com">fastsales@gmail.com</a></div>
+                            <div class="menu_contact_item">
+                                <div class="menu_contact_icon">
+                                    <img src="{{url('')}}/public/frontend/images/phone_white.png" alt="">
+                                </div>
+                                <a href="tel:{{$setting->mobile_1}}">{{$setting->mobile_1}}</a>
+
+                            </div>
+                            <div class="menu_contact_item">
+                                <div class="menu_contact_icon">
+                                    <img src="{{url('')}}/public/frontend/images/mail_white.png" alt="">
+                                </div>
+                                <a href="mailto:{{$setting->email}}">{{$setting->email}}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
