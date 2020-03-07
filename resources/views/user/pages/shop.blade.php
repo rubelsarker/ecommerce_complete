@@ -17,6 +17,8 @@
             <h2 class="home_title">
                 @if(isset($brand))
                     {{$brand->name}} Products
+                @elseif(isset($cat))
+                    {{$cat->name}} Products
                 @else
                     All Products
                 @endif
@@ -36,15 +38,9 @@
                         <div class="sidebar_section">
                             <div class="sidebar_title">Categories</div>
                             <ul class="sidebar_categories">
-                                <li><a href="#">Computers & Laptops</a></li>
-                                <li><a href="#">Cameras & Photos</a></li>
-                                <li><a href="#">Hardware</a></li>
-                                <li><a href="#">Smartphones & Tablets</a></li>
-                                <li><a href="#">TV & Audio</a></li>
-                                <li><a href="#">Gadgets</a></li>
-                                <li><a href="#">Car Electronics</a></li>
-                                <li><a href="#">Video Games & Consoles</a></li>
-                                <li><a href="#">Accessories</a></li>
+                                @foreach($cats as $cat)
+                                    <li><a href="{{route('category.products',base64_encode($cat->id))}}">{{$cat->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="sidebar_section filter_by_section">

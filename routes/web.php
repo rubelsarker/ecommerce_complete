@@ -21,15 +21,14 @@ Route::group(['namespace'=>'User'], function(){
     Route::get(md5('shop'),'PagesController@shop')->name('shop');
     //product by brand
     Route::get('brand/{id}','ProductFilterController@productByBrand')->name('brand.products');
+    //product by category
+    Route::get('category/{id}','ProductFilterController@productByCategory')->name('category.products');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 //view composer
-View::composer(['user.partial._header','user.partial._brand'],function ($view){
-    $cats = Category::all();
-    $brands = Brand::all();
-    $view->with(['cats' => $cats, 'brands' => $brands]);
-});
 View::composer(['*'],function ($view){
     $setting = WebsiteSetting::firstOrFail();
-    $view->with(['setting' => $setting]);
+    $cats = Category::all();
+    $brands = Brand::all();
+    $view->with(['setting' => $setting, 'cats' => $cats, 'brands' => $brands]);
 });
